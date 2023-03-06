@@ -1,5 +1,6 @@
 import express from "express"
 import logger from "morgan"
+import bodyParser from "body-parser";
 const app = express()
 
 import reservationRouter from "./routes/reservation.js";
@@ -7,7 +8,8 @@ import playgroundRouter from "./routes/playground.js";
 
 //setting
 app.use(logger("dev"))
-
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended:false }))
 
 //router
 app.use("/playground", playgroundRouter)

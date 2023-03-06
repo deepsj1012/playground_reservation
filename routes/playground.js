@@ -12,8 +12,15 @@ router.get("/", (req, res) => {
 })
 //playground 정보를 생성하는 api
 router.post("/create", (req, res) => {
+    const newPlayground = {
+        name : req.body.playgroundName,
+        price : req.body.playgroundPrice,
+        startTime : req.body.playgroundStartTime,
+        endTime : req.body.playgroundEndTime
+    }
     res.json({
-        msg : "create a playground"
+        msg : "create a playground",
+        data : newPlayground
     })
 })
 //playground 정보를 수정하는 api
