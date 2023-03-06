@@ -1,11 +1,14 @@
 import express from "express"
 const app = express()
 
-app.use("/hello", (req, res) => {
-    res.json({
-        msg: "hello world"
-    })
-})
+import reservation from "./routes/reservation.js";
+import playgroundRouter from "./routes/playground.js";
+
+
+
+
+//router
+app.use("/playground", playgroundRouter)
 
 
 
