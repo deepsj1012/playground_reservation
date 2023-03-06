@@ -2,13 +2,16 @@ import express from "express"
 import logger from "morgan"
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
+import dotenv from "dotenv";
 const app = express()
+
+dotenv.config()
 
 import reservationRouter from "./routes/reservation.js";
 import playgroundRouter from "./routes/playground.js";
 
 //DB connection
-const dbAddress = ""
+const dbAddress = process.env.MONGODB_ADDRESS
 mongoose
     .connect(dbAddress)
     .then(_ => console.log("database connected")) //데이터베이스 접속 성공 시 핸들링
@@ -26,7 +29,7 @@ app.use("/playground", playgroundRouter)
 app.use("/reservation", reservationRouter)
 
 
-const port = 9999
+const port = process.env.PORT || 8888
 app.listen(port, console.log("server started"))
 
 
