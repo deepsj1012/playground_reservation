@@ -1,7 +1,7 @@
 import express from "express"
 const app = express()
 
-import reservation from "./routes/reservation.js";
+import reservationRouter from "./routes/reservation.js";
 import playgroundRouter from "./routes/playground.js";
 
 
@@ -9,7 +9,7 @@ import playgroundRouter from "./routes/playground.js";
 
 //router
 app.use("/playground", playgroundRouter)
-
+app.use("/reservation", reservationRouter)
 
 
 const port = 9999

@@ -1,3 +1,4 @@
+//1.
 import express from "express";
 const router = express.Router()
 
@@ -33,5 +34,5 @@ router.delete("/", (req, res) => {
 
 
 
-
+//2.
 export default router
