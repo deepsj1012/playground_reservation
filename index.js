@@ -1,10 +1,20 @@
 import express from "express"
 import logger from "morgan"
 import bodyParser from "body-parser";
+import mongoose from "mongoose";
 const app = express()
 
 import reservationRouter from "./routes/reservation.js";
 import playgroundRouter from "./routes/playground.js";
+
+//DB connection
+const dbAddress = ""
+mongoose
+    .connect(dbAddress)
+    .then(_ => console.log("database connected")) //데이터베이스 접속 성공 시 핸들링
+    .catch(err => console.log(err.message)) //데이터베이스 접속 실패 시 핸들링
+
+
 
 //setting
 app.use(logger("dev"))
